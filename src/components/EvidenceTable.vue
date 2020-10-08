@@ -159,7 +159,7 @@ export default {
         .keys(this.evidenceModel)
         .forEach((setEvidence) => {
           const hasEvidence = entity.evidence.includes(setEvidence);
-          const current = this.evidenceModel[setEvidence.key];
+          const current = this.evidenceModel[setEvidence];
 
           if (hasEvidence && current === 'not_likely') {
             possibility -= 1;
