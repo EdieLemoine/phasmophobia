@@ -33,7 +33,9 @@
           :key="'entity--' + entity.key"
           class="entity__details relative"
           :class="{
-            'opacity-75': getLikelihood(entity) < 0,
+            'opacity-75': getLikelihood(entity) === -1,
+            'opacity-50': getLikelihood(entity) === -2,
+            'opacity-25': getLikelihood(entity) < -2,
           }">
           <div :key="entity.key + `__data`">
             <div
