@@ -2,17 +2,41 @@
   <div
     id="app"
     class="flex p-2">
-    <EvidenceTable class="mt-8 mx-auto" />
+    <div class="mx-auto">
+      <div class="flex">
+        <EntityData />
+
+        <div class="ml-auto my-auto">
+          <TButton
+            ref="reset"
+            class="active:bg-gray-700 h-100 hover:bg-gray-900"
+            @click="$eventBus.triggerKey('r');">
+            Reset
+          </TButton>
+        </div>
+      </div>
+
+      <EvidenceTable class="mt-2" />
+
+      <div class="mt-2">
+        <TButton
+          tag-name="a"
+          class="opacity-50"
+          target="_blank"
+          href="https://github.com/EdieLemoine/phasmophobia">
+          Open on GitHub
+        </TButton>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import EvidenceTable from '@/components/EvidenceTable';
-
 export default {
   name: 'App',
   components: {
-    EvidenceTable,
+    EntityData: () => import('@/components/EntityData'),
+    EvidenceTable: () => import('@/components/EvidenceTable'),
   },
 };
 </script>

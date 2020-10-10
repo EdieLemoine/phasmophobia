@@ -2,60 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-/*.list-enter-active,*/
-/*.list-leave-active,*/
-/*.list-move,*/
-/*.list-enter,*/
-/*.list-enter-to,*/
-/*.list-leave-active,*/
-/*.list-leave-to {*/
-/*    border: 1px solid;*/
-/*}*/
-
-/*.list-enter-active {*/
-/*    border-color: #42b983*/
-/*}*/
-
-/*.list-leave-active {*/
-/*    width: 100%;*/
-/*    border-color: #10587e*/
-/*}*/
-
-/*.list-move {*/
-/*    border-color: #6421a9*/
-/*}*/
-
-/*.list-enter {*/
-/*    border-color: #a91253*/
-/*}*/
-
-/*.list-enter-to {*/
-/*    border-color: #b9a942*/
-/*}*/
-
-/*.list-leave-active {*/
-/*    border-color: #8d3d10*/
-/*}*/
-
-/*.list-leave-to {*/
-/*    border-color: #4cc12c*/
-/*}*/
-
 .list-enter-active,
 .list-leave-active,
 .list-move {
-    transition: 300ms cubic-bezier(0.59, 0.12, 0.34, 0.95);
+    transition: .3s cubic-bezier(0.59, 0.12, 0.34, 0.95);
     transition-property: opacity, transform;
 }
 
+.list-leave-to,
 .list-enter {
     opacity: 0;
-    transform: translateX(50px) scaleY(0.5);
+}
+
+.list-enter {
+    transform: scale(0.5);
 }
 
 .list-enter-to {
     opacity: 1;
-    transform: translateX(0) scaleY(1);
+    transform: scale(1);
 }
 
 .list-leave-active {
@@ -72,7 +37,7 @@
 .expand-enter-active,
 .expand-leave-active {
     overflow: hidden;
-    transition: height .5s ease-in-out;
+    transition: height .3s ease;
 }
 
 .expand-enter,

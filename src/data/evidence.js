@@ -5,6 +5,9 @@ export const SPIRIT_BOX = 'spiritBox';
 export const FINGERPRINTS = 'fingerprints';
 export const FREEZING_TEMPERATURES = 'freezingTemps';
 
+/**
+ * @type {Evidence[]}
+ */
 export const evidence = [
   {
     name: 'EMF Level 5',

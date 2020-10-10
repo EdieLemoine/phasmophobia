@@ -16,6 +16,8 @@
         text: 'Confirmed',
       },
     ]"
+    :tabindex="tabIndex"
+    classes="focus:z-10"
     @input="mutableValue = $event">
     }
   </TSelect>
@@ -34,6 +36,14 @@ export default {
     value: {
       type: String,
       default: () => 'maybe',
+    },
+    tabIndex: {
+      type: Number,
+      default: () => 0,
+    },
+    selectClass: {
+      type: String,
+      default: null,
     },
   },
 };
