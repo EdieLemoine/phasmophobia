@@ -1,5 +1,8 @@
 import { EMF_5, FINGERPRINTS, FREEZING_TEMPERATURES, GHOST_ORBS, GHOST_WRITING, SPIRIT_BOX } from '@/data/evidence';
 
+/**
+ * @type {Entity[]}
+ */
 export const entities = [
   {
     name: 'Banshee',
@@ -73,7 +76,7 @@ export const entities = [
       'Any kind of light.',
     ],
     details: [
-      'Stronger in the dark in the dark.',
+      'Stronger in the dark.',
       'Hates light.',
     ],
   },

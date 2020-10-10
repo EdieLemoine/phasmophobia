@@ -23,12 +23,11 @@ const settings = {
   },
 
   TButton: {
-    fixedClasses: 'text-white flex-1 px-2 py-1 focus:outline-none focus:shadow-outline transition-colors duration-100',
-    variants: {
-      maybe: 'hover:bg-gray-900',
-      confirmed: 'hover:bg-green-900 text-green-300',
-      not_likely: 'hover:bg-yellow-900 text-yellow-300',
-    },
+    fixedClasses: 'flex-1 px-2 py-1 focus:outline-none focus:shadow-outline transition-colors duration-100',
+  },
+
+  TInput: {
+    classes: 'bg-gray-900 focus:outline-none focus:shadow-outline rounded py-2 px-4',
   },
 };
 

@@ -1,3 +1,6 @@
 {
-  "extends": "@myparcel/eslint-config/preset-vue"
+  "extends": "@myparcel/eslint-config/preset-vue",
+  "rules": {
+    "jsdoc/no-undefined-types": "off"
+  }
 }
