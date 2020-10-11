@@ -1,0 +1,10 @@
+.expand-enter-active,
+.expand-leave-active {
+    overflow: hidden;
+    transition: height .3s ease;
+}
+
+.expand-enter,
+.expand-leave-to {
+    height: 0;
+}

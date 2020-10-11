@@ -1,22 +1,36 @@
-const purgeCss = require('@fullhuman/postcss-purgecss');
-
 module.exports = {
   plugins: [
+    require('postcss-import'),
     require('tailwindcss'),
-    require('autoprefixer'),
     ...process.env.NODE_ENV === 'production'
       ? [
-        purgeCss({
+        require('@fullhuman/postcss-purgecss')({
+          css: ['./assets/style.css'],
           content: [
-            './public/*.html',
-            './src/**/*.html',
-            './src/**/*.js',
+            './public/**/*.html',
             './src/**/*.vue',
+            './src/**/*.js',
           ],
-
-          defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
+          defaultExtractor(content) {
+            const contentWithoutStyleBlocks = content.replace(
+              /<style[^]+?<\/style>/gi,
+              '',
+            );
+            return (
+              contentWithoutStyleBlocks.match(
+                /[A-Za-z0-9-_/:]*[A-Za-z0-9-_/]+/g,
+              ) || []
+            );
+          },
+          safelist: [
+            /-(leave|enter|appear)(|-(to|from|active))$/,
+            /^(?!(|.*?:)cursor-move).+-move$/,
+            /^router-link(|-exact)-active$/,
+            /data-v-.*/,
+          ],
         }),
       ]
       : [],
+    require('autoprefixer'),
   ],
 };

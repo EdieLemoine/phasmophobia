@@ -1,8 +1,10 @@
 module.exports = {
+  // Purging is handled in postcss.config.js
+  purge: false,
   future: {
     purgeLayersByDefault: true,
+    removeDeprecatedGapUtilities: true,
   },
-
   variants: {
     backgroundColor: [
       'active',
