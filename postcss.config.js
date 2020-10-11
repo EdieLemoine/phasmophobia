@@ -23,6 +23,8 @@ module.exports = {
             );
           },
           safelist: [
+            // Elements used from vue-tailwind
+            /button|select|input/,
             /-(leave|enter|appear)(|-(to|from|active))$/,
             /^(?!(|.*?:)cursor-move).+-move$/,
             /^router-link(|-exact)-active$/,
