@@ -13,6 +13,11 @@ const MODIFIER_KEYS = [
   'Control',
 ];
 
+const IGNORE_ELEMENTS = [
+  HTMLInputElement,
+  HTMLSelectElement,
+];
+
 export const EventBus = new Vue({
   name: 'EventBus',
 
@@ -40,15 +45,19 @@ export const EventBus = new Vue({
     },
 
     /**
+     * Emit a key event. Supports manual triggering like `{key: 'r'}` and `Event`.
+     *
+     * Event is not emitted if it's an Event and the current target element is in IGNORE_ELEMENTS or if any modifier
+     *  keys are pressed.
+     *
      * @param {KeyboardEvent|Object} event
      */
     globalKeyDown(event) {
       if (event instanceof Event) {
-        const anyModifierPressed = MODIFIER_KEYS.some((key) => {
-          return event.getModifierState(key);
-        });
+        const shouldBeIgnored = IGNORE_ELEMENTS.some((element) => event.target instanceof element);
+        const anyModifierPressed = MODIFIER_KEYS.some((key) => event.getModifierState(key));
 
-        if (anyModifierPressed) {
+        if (shouldBeIgnored || anyModifierPressed) {
           return;
         }
       }
