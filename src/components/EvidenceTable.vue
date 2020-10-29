@@ -145,6 +145,18 @@ export default {
   },
 
   watch: {
+    /**
+     * When filtering entities and there's only one left, open it. Otherwise close any open details whenever the
+     *  entities that are shown change.
+     */
+    possibleEntities() {
+      if (this.possibleEntities.length === 1) {
+        this.toggleDetails(this.possibleEntities[0]);
+      } else {
+        this.shownDetails = null;
+      }
+    },
+
     evidenceModel: {
       handler(value) {
         this.$eventBus.save('evidence', value);
