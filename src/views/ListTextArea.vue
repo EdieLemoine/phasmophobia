@@ -40,7 +40,14 @@ export default {
 
   beforeMount() {
     if (this.items) {
-      this.value = this.items.join('\n');
+      this.value = this.items.map((item) => {
+        if (typeof item !== 'string') {
+          return item.text;
+        }
+
+        return item;
+      })
+        .join('\n');
     }
   },
 

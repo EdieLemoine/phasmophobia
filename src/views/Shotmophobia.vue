@@ -93,6 +93,14 @@ const guestTraits = EventBus.load('shotmophobia_guest_traits') || [];
 const agentTraits = EventBus.load('shotmophobia_agent_traits') || [];
 const models = EventBus.load('shotmophobia_models') || [];
 
+const ghostNames = [
+  { text: 'None', value: 'none' },
+  ...entities.map((entity) => ({
+    text: entity.name,
+    value: entity.key,
+  })),
+];
+
 export default {
   name: 'Shotmophobia',
   components: { ListTextArea, Grid },
@@ -104,17 +112,8 @@ export default {
       names,
       guestTraits,
       agentTraits,
-      ghostNames: [
-        { text: 'Geen', value: 'none' },
-        ...entities.map((entity) => ({
-          text: entity.name,
-          value: entity.key,
-        })),
-      ],
-      models: [
-        { text: 'Geen', value: 'none' },
-        ...models,
-      ],
+      ghostNames,
+      models,
     };
   },
 
@@ -186,6 +185,8 @@ export default {
      * @param {Array<String>} event
      */
     saveModels(event) {
+      event.unshift({ text: 'None', value: 'none' });
+
       this.models = event;
       this.$eventBus.save('shotmophobia_models', event);
     },

@@ -183,7 +183,7 @@ export default {
         propertyName: 'opacity',
       },
     });
-    this.evidenceModel = this.$eventBus.load('evidence');
+    this.evidenceModel = this.$eventBus.load('evidence') ?? {};
   },
 
   methods: {

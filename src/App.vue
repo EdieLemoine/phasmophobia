@@ -1,10 +1,8 @@
 <template>
   <div class="flex p-2">
-    <div class="mx-auto">
-      <div class="flex">
-        <EntityData />
-
-        <div class="ml-auto my-auto">
+    <div class="max-w-screen-xl mx-auto w-full">
+      <div>
+        <div class="flex">
           <TButton
             ref="shotmophobia"
             class="active:bg-gray-700 flex-grow-0 h-100 hover:bg-gray-900 ml-auto"
@@ -14,7 +12,15 @@
             @click="shotmophobia = !shotmophobia">
             Shotmophobia mode
           </TButton>
+        </div>
 
+        <KeepAlive><Shotmophobia v-if="shotmophobia" /></KeepAlive>
+      </div>
+
+      <div class="flex">
+        <EntityData />
+
+        <div class="ml-auto my-auto">
           <TButton
             ref="reset"
             class="active:bg-gray-700 h-100 hover:bg-gray-900"
@@ -24,8 +30,7 @@
         </div>
       </div>
 
-      <Shotmophobia v-if="shotmophobia" />
-      <EvidenceTable class="mt-2" />
+      <EvidenceTable />
 
       <div class="mt-2">
         <TButton

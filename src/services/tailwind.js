@@ -6,7 +6,7 @@ const settings = {
     wrapped: true,
     fixedClasses: {
       wrapper: 'relative',
-      input: 'bg-transparent appearance-none focus:outline-none focus:shadow-outline py-2 pr-6 px-3 block w-full rounded',
+      input: 'bg-transparent appearance-none focus:outline-none focus:shadow-outline py-2 pr-6 px-3 block w-full',
       arrowWrapper: 'pointer-events-none absolute inset-y-0 right-0 flex items-center px-2',
       arrow: 'fill-current h-4 w-4',
     },
@@ -30,7 +30,7 @@ const settings = {
   },
 
   TTextarea: {
-    fixedClasses: 'bg-gray-900 appearance-none focus:outline-none focus:shadow-outline py-2 pr-6 px-3 block w-full rounded mb-2',
+    fixedClasses: 'bg-gray-900 appearance-none focus:outline-none focus:shadow-outline py-2 pr-6 px-3 block w-full mb-2',
     variants: {
       danger: 'border-red-300 bg-red-50 placeholder-red-200 text-red-900',
       success: 'border-green-300 bg-green-50 placeholder-gray-400 text-green-900',
@@ -38,11 +38,11 @@ const settings = {
   },
 
   TButton: {
-    fixedClasses: 'flex-1 px-2 py-1 focus:outline-none focus:shadow-outline transition-colors duration-100 hover:bg-gray-900 transition-colors duration-200 rounded',
+    fixedClasses: 'whitespace-nowrap flex-1 px-2 py-1 focus:outline-none focus:shadow-outline transition-colors duration-100 hover:bg-gray-900 transition-colors duration-200',
   },
 
   TInput: {
-    classes: 'bg-gray-900 focus:outline-none focus:shadow-outline rounded py-2 px-4',
+    classes: 'bg-gray-900 focus:outline-none focus:shadow-outline py-2 px-4',
   },
 };
 
