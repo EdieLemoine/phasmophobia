@@ -1,20 +1,12 @@
 <template>
-  <div class="flex p-2">
+  <div
+    id="app"
+    class="flex p-2">
     <div class="mx-auto">
       <div class="flex">
         <EntityData />
 
         <div class="ml-auto my-auto">
-          <TButton
-            ref="shotmophobia"
-            class="active:bg-gray-700 flex-grow-0 h-100 hover:bg-gray-900 ml-auto"
-            :class="{
-              'bg-green-900': shotmophobia,
-            }"
-            @click="shotmophobia = !shotmophobia">
-            Shotmophobia mode
-          </TButton>
-
           <TButton
             ref="reset"
             class="active:bg-gray-700 h-100 hover:bg-gray-900"
@@ -24,8 +16,8 @@
         </div>
       </div>
 
-      <Shotmophobia v-if="shotmophobia" />
       <EvidenceTable class="mt-2" />
+      <Shotmophobia v-if="shotmophobia" />
 
       <div class="mt-2">
         <TButton
@@ -45,7 +37,7 @@ import EntityData from '@/components/EntityData';
 import EvidenceTable from '@/components/EvidenceTable';
 
 export default {
-  name: 'App',
+  name: 'Home',
   components: {
     Shotmophobia: () => import('@/views/Shotmophobia'),
     EntityData,

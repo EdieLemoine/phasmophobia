@@ -1,10 +1,10 @@
 <template>
-  <div class="bg-black border grid grid-cols-7 inline-block mx-auto overflow-hidden p-2 relative rounded">
-    <div />
+  <Grid cols="7">
+    <div class="border-b" />
     <div
       v-for="evidenceItem in evidence"
       :key="'evidence__' + evidenceItem.key"
-      class="flex py-2 text-center">
+      class="border-b flex py-2 text-center">
       <span
         class="m-auto"
         v-text="evidenceItem.name" />
@@ -96,11 +96,12 @@
         </div>
       </TransitionGroup>
     </div>
-  </div>
+  </Grid>
 </template>
 
 <script>
 import Cookies from 'js-cookie';
+import Grid from '@/views/Grid';
 import { details } from '@/data/details';
 import { entities } from '@/data/entities';
 import { evidence } from '@/data/evidence';
@@ -113,6 +114,7 @@ const cookies = Cookies.get('evidence');
 export default {
   name: 'EvidenceTable',
   components: {
+    Grid,
     Icon: () => import('@/components/Icon'),
     TransitionExpand: () => import('@/components/TransitionExpand'),
     EvidenceSelect: () => import('@/components/EvidenceSelect'),

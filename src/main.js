@@ -6,9 +6,7 @@ import Vue from 'vue';
 import vClickOutside from 'v-click-outside';
 
 Vue.config.productionTip = false;
-
 Vue.use(vClickOutside);
-
 Vue.prototype.$eventBus = EventBus;
 
 new Vue({

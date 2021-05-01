@@ -24,7 +24,7 @@ module.exports = {
           },
           safelist: [
             // Elements used from vue-tailwind
-            /button|select|input/,
+            /button|select|input|textarea|p/,
             /-(leave|enter|appear)(|-(to|from|active))$/,
             /^(?!(|.*?:)cursor-move).+-move$/,
             /^router-link(|-exact)-active$/,
