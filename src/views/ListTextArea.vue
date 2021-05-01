@@ -25,6 +25,10 @@ export default {
       type: String,
       default: null,
     },
+    items: {
+      type: Array,
+      default: null,
+    },
   },
 
   data() {
@@ -34,10 +38,19 @@ export default {
     };
   },
 
+  beforeMount() {
+    if (this.items) {
+      this.value = this.items.join('\n');
+    }
+  },
+
   methods: {
     save(event) {
-      if (event && (event.shiftKey || event.ctrlKey)) {
-        return;
+      if (event) {
+        if (event.shiftKey || event.ctrlKey) {
+          return;
+        }
+        event.preventDefault();
       }
 
       let separator;

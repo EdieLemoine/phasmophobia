@@ -1,7 +1,6 @@
 <template>
   <div
-    class="bg-black border grid inline-block mx-auto overflow-hidden p-2 relative rounded"
-
+    class="bg-black border grid inline-block max-w-screen-xl mx-auto overflow-hidden p-2 relative rounded w-full"
     :class="colsClass">
     <slot />
   </div>

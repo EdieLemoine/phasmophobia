@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <Grid>
     <div class="mb-3">
       <TButton
         class="mr-2"
@@ -33,7 +33,9 @@
         @save="saveGuestTraits" />
     </div>
 
-    <Grid cols="5">
+    <Grid
+      v-if="ready"
+      cols="5">
       <!-- row -->
       <span class="border-b py-2">Naam</span>
       <span class="border-b py-2">Goestoe keuze</span>
@@ -76,21 +78,20 @@
       </template>
       <!-- /row-->
     </Grid>
-  </div>
+  </Grid>
 </template>
 
 <script>
-import Cookies from 'js-cookie';
+import { EventBus } from '@/EventBus';
 import Grid from '@/views/Grid';
 import ListTextArea from '@/views/ListTextArea';
 import { RandomGenerator } from '@/services/RandomGenerator';
 import { entities } from '@/data/entities';
-import { getCookie } from '@/services/getCookie';
 
-const names = getCookie('shotmophobia_names');
-const guestTraits = getCookie('shotmophobia_guest_traits');
-const agentTraits = getCookie('shotmophobia_agent_traits');
-const models = getCookie('shotmophobia_models');
+const names = EventBus.load('shotmophobia_names') || [];
+const guestTraits = EventBus.load('shotmophobia_guest_traits') || [];
+const agentTraits = EventBus.load('shotmophobia_agent_traits') || [];
+const models = EventBus.load('shotmophobia_models') || [];
 
 export default {
   name: 'Shotmophobia',
@@ -99,7 +100,7 @@ export default {
   data() {
     return {
       generators: {},
-      configure: !names || !guestTraits || !agentTraits,
+      configure: !names.length || !guestTraits.length || !agentTraits.length || !models.length,
       names,
       guestTraits,
       agentTraits,
@@ -110,11 +111,21 @@ export default {
           value: entity.key,
         })),
       ],
-      models,
+      models: [
+        { text: 'Geen', value: 'none' },
+        ...models,
+      ],
     };
   },
 
   computed: {
+    ready() {
+      return this.names.length
+          && this.models.length
+          && this.agentTraits.length
+          && this.guestTraits.length;
+    },
+
     people() {
       return this.names.map((name) => {
         const job = this.generators.jobs.generate();
@@ -152,7 +163,7 @@ export default {
      */
     saveNames(event) {
       this.names = event;
-      Cookies.set('shotmophobia_names', event);
+      this.$eventBus.save('shotmophobia_names', event);
     },
 
     /**
@@ -160,7 +171,7 @@ export default {
      */
     saveAgentTraits(event) {
       this.agentTraits = event;
-      Cookies.set('shotmophobia_guest_traits', event);
+      this.$eventBus.save('shotmophobia_agent_traits', event);
     },
 
     /**
@@ -168,7 +179,7 @@ export default {
      */
     saveGuestTraits(event) {
       this.guestTraits = event;
-      Cookies.set('shotmophobia_agent_traits', event);
+      this.$eventBus.save('shotmophobia_guest_traits', event);
     },
 
     /**
@@ -176,7 +187,7 @@ export default {
      */
     saveModels(event) {
       this.models = event;
-      Cookies.set('shotmophobia_models', event);
+      this.$eventBus.save('shotmophobia_models', event);
     },
   },
 };
