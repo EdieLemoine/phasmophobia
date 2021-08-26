@@ -1,5 +1,5 @@
 <template>
-  <Grid cols="7">
+  <Grid cols="8">
     <div class="border-b" />
     <div
       v-for="evidenceItem in evidence"
@@ -17,7 +17,7 @@
       select-class="focus:z-10"
       class="w-full" />
 
-    <div class="col-span-7 entity__row">
+    <div class="col-span-8 entity__row">
       <TransitionGroup
         tag="div"
         class="relative"
@@ -36,7 +36,7 @@
           @click="() => toggleDetails(entity)">
           <div
             :key="entity.key + `__data`"
-            class="col-span-7 cursor-pointer duration-150 entity__row grid grid-cols-7 relative transition-colors">
+            class="col-span-8 cursor-pointer duration-150 entity__row grid grid-cols-8 relative transition-colors">
             <div
               class="flex px-3"
               :class="{
@@ -72,7 +72,7 @@
             </div>
             <TransitionExpand
               :key="entity.key + `__data`"
-              class="col-span-7">
+              class="col-span-8">
               <div
                 v-show="isPossible(entity) && shownDetails === entity.key"
                 class="bg-gray-900">

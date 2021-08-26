@@ -1,5 +1,13 @@
 /* eslint-disable max-len,vue/max-len */
-import { EMF_5, FINGERPRINTS, FREEZING_TEMPERATURES, GHOST_ORBS, GHOST_WRITING, SPIRIT_BOX } from '@/data/evidence';
+import {
+  DOTS_PROJECTOR,
+  EMF_5,
+  FINGERPRINTS,
+  FREEZING_TEMPERATURES,
+  GHOST_ORBS,
+  GHOST_WRITING,
+  SPIRIT_BOX,
+} from '@/data/evidence';
 
 export const SPIRIT = 'spirit';
 export const WRAITH = 'wraith';
@@ -15,6 +23,8 @@ export const YUREI = 'yurei';
 export const ONI = 'oni';
 export const HANTU = 'hantu';
 export const YOKAI = 'yokai';
+export const GORYO = 'goryo';
+export const MYLING = 'myling';
 
 /**
  * @type {Entity[]}
@@ -24,9 +34,9 @@ export const entities = [
     name: 'Spirit',
     key: SPIRIT,
     evidence: [
-      FINGERPRINTS,
-      GHOST_WRITING,
+      EMF_5,
       SPIRIT_BOX,
+      GHOST_WRITING,
     ],
     strengths: [
       'None.',
@@ -42,9 +52,9 @@ export const entities = [
     name: 'Wraith',
     key: WRAITH,
     evidence: [
-      FINGERPRINTS,
-      FREEZING_TEMPERATURES,
+      EMF_5,
       SPIRIT_BOX,
+      DOTS_PROJECTOR,
     ],
     strengths: [
       'Cannot be tracked with footsteps.',
@@ -60,9 +70,9 @@ export const entities = [
     name: 'Phantom',
     key: PHANTOM,
     evidence: [
-      EMF_5,
-      FREEZING_TEMPERATURES,
-      GHOST_ORBS,
+      SPIRIT_BOX,
+      FINGERPRINTS,
+      DOTS_PROJECTOR,
     ],
     strengths: [
       'Looking at it will dramatically lower your sanity.',
@@ -78,9 +88,9 @@ export const entities = [
     name: 'Poltergeist',
     key: POLTERGEIST,
     evidence: [
-      FINGERPRINTS,
-      GHOST_ORBS,
       SPIRIT_BOX,
+      FINGERPRINTS,
+      GHOST_WRITING,
     ],
     strengths: [
       'Can throw many objects at once.',
@@ -96,9 +106,9 @@ export const entities = [
     name: 'Banshee',
     key: BANSHEE,
     evidence: [
-      EMF_5,
       FINGERPRINTS,
-      FREEZING_TEMPERATURES,
+      GHOST_ORBS,
+      DOTS_PROJECTOR,
     ],
     strengths: [
       'Targets one player at a time.',
@@ -115,8 +125,8 @@ export const entities = [
     key: JINN,
     evidence: [
       EMF_5,
-      GHOST_ORBS,
-      SPIRIT_BOX,
+      FINGERPRINTS,
+      FREEZING_TEMPERATURES,
     ],
     strengths: [
       'When a player is farther away, the Jinn is faster.',
@@ -133,9 +143,9 @@ export const entities = [
     name: 'Mare',
     key: MARE,
     evidence: [
-      FREEZING_TEMPERATURES,
-      GHOST_ORBS,
       SPIRIT_BOX,
+      GHOST_ORBS,
+      GHOST_WRITING,
     ],
     strengths: [
       'The dark will increase its odds of attacking.',
@@ -152,9 +162,9 @@ export const entities = [
     name: 'Revenant',
     key: REVENANT,
     evidence: [
-      EMF_5,
-      FINGERPRINTS,
+      GHOST_ORBS,
       GHOST_WRITING,
+      FREEZING_TEMPERATURES,
     ],
     strengths: [
       'Faster when hunting a victim.',
@@ -171,8 +181,8 @@ export const entities = [
     key: SHADE,
     evidence: [
       EMF_5,
-      GHOST_ORBS,
       GHOST_WRITING,
+      FREEZING_TEMPERATURES,
     ],
     strengths: [
       'It is shy, which makes it hard to find.',
@@ -188,9 +198,9 @@ export const entities = [
     name: 'Demon',
     key: DEMON,
     evidence: [
-      FREEZING_TEMPERATURES,
+      FINGERPRINTS,
       GHOST_WRITING,
-      SPIRIT_BOX,
+      FREEZING_TEMPERATURES,
     ],
     strengths: [
       'Demons attack more than any other ghost type.',
@@ -208,9 +218,9 @@ export const entities = [
     name: 'Yurei',
     key: YUREI,
     evidence: [
-      FREEZING_TEMPERATURES,
       GHOST_ORBS,
-      GHOST_WRITING,
+      FREEZING_TEMPERATURES,
+      DOTS_PROJECTOR,
     ],
     strengths: [
       'Strong effect on your sanity.',
@@ -228,8 +238,8 @@ export const entities = [
     key: ONI,
     evidence: [
       EMF_5,
-      GHOST_WRITING,
-      SPIRIT_BOX,
+      FREEZING_TEMPERATURES,
+      DOTS_PROJECTOR,
     ],
     strengths: [
       'Active when players are nearby and can move objects very quickly.',
@@ -247,7 +257,7 @@ export const entities = [
     evidence: [
       FINGERPRINTS,
       GHOST_ORBS,
-      GHOST_WRITING,
+      FREEZING_TEMPERATURES,
     ],
     strengths: [
       'Lower temperatures can cause the Hantu to move at faster speeds.',
@@ -265,7 +275,7 @@ export const entities = [
     evidence: [
       SPIRIT_BOX,
       GHOST_ORBS,
-      GHOST_WRITING,
+      DOTS_PROJECTOR,
     ],
     strengths: [
       'Talking near a Yokai will anger it and increase its chance of attacking.',
@@ -276,5 +286,22 @@ export const entities = [
     details: [
       'A Yokai is a common type of ghost that is attracted to human voices. They can usually be found haunting family homes.',
     ],
+  },
+
+  {
+    name: 'Goryo',
+    key: GORYO,
+    evidence: [EMF_5, FINGERPRINTS, DOTS_PROJECTOR],
+    strengths: ['A Goryo will usually only show itself on camera if there are no people nearby.'],
+    weaknesses: ['They are rarely seen far from their place of death.'],
+    details: ['Using a video camera is the only way to view a Goryo, when it passes through a D.O.T.S. Projector'],
+  },
+  {
+    name: 'Myling',
+    key: MYLING,
+    evidence: [EMF_5, FINGERPRINTS, GHOST_WRITING],
+    strengths: ['A Myling is known to be quieter when hunting.'],
+    weaknesses: ['Mylings more frequently make paranormal sounds.'],
+    details: ['A Myling is a very vocal and active ghost. They are rumoured to be quiet when hunting their prey.'],
   },
 ];

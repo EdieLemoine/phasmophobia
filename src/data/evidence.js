@@ -4,6 +4,7 @@ export const GHOST_ORBS = 'orbs';
 export const SPIRIT_BOX = 'spiritBox';
 export const FINGERPRINTS = 'fingerprints';
 export const FREEZING_TEMPERATURES = 'freezingTemps';
+export const DOTS_PROJECTOR = 'dotsProjector';
 
 /**
  * @type {Evidence[]}
@@ -32,5 +33,9 @@ export const evidence = [
   {
     name: 'Freezing Temperatures',
     key: FREEZING_TEMPERATURES,
+  },
+  {
+    name: 'D.O.T.S. Projector',
+    key: DOTS_PROJECTOR,
   },
 ];
