@@ -25,6 +25,10 @@ export const HANTU = 'hantu';
 export const YOKAI = 'yokai';
 export const GORYO = 'goryo';
 export const MYLING = 'myling';
+export const ONYRO = 'onyro';
+export const THE_TWINS = 'the_twins';
+export const RAIJU = 'raiju';
+export const OBAKE = 'obake';
 
 /**
  * @type {Entity[]}
@@ -266,7 +270,8 @@ export const entities = [
       'A Hantu will move slower in warmer areas.',
     ],
     details: [
-      'A Hantu is a rare ghost that can be found in hot climates. They are known to attack often during cold weather.',
+      'A Hantu is a rare ghost that can be found in hot climates.',
+      'They are known to attack often during cold weather.',
     ],
   },
   {
@@ -284,24 +289,118 @@ export const entities = [
       'When hunting, a Yokai can only hear voices close to it.',
     ],
     details: [
-      'A Yokai is a common type of ghost that is attracted to human voices. They can usually be found haunting family homes.',
+      'A Yokai is a common type of ghost that is attracted to human voices.',
+      'They can usually be found haunting family homes.',
     ],
   },
-
   {
     name: 'Goryo',
     key: GORYO,
     evidence: [EMF_5, FINGERPRINTS, DOTS_PROJECTOR],
-    strengths: ['A Goryo will usually only show itself on camera if there are no people nearby.'],
-    weaknesses: ['They are rarely seen far from their place of death.'],
-    details: ['Using a video camera is the only way to view a Goryo, when it passes through a D.O.T.S. Projector'],
+    strengths: [
+      'A Goryo will usually only show itself on camera if there are no people nearby.',
+    ],
+    weaknesses: [
+      'They are rarely seen far from their place of death.',
+    ],
+    details: [
+      'Using a video camera is the only way to view a Goryo, when it passes through a D.O.T.S. Projector',
+    ],
   },
   {
     name: 'Myling',
     key: MYLING,
-    evidence: [EMF_5, FINGERPRINTS, GHOST_WRITING],
-    strengths: ['A Myling is known to be quieter when hunting.'],
-    weaknesses: ['Mylings more frequently make paranormal sounds.'],
-    details: ['A Myling is a very vocal and active ghost. They are rumoured to be quiet when hunting their prey.'],
+    evidence: [
+      EMF_5,
+      FINGERPRINTS,
+      GHOST_WRITING,
+    ],
+    strengths: [
+      'A Myling is known to be quieter when hunting.',
+    ],
+    weaknesses: [
+      'Mylings more frequently make paranormal sounds.',
+    ],
+    details: [
+      'A Myling is a very vocal and active ghost.',
+      'They are rumoured to be quiet when hunting their prey.',
+    ],
+  },
+  {
+    name: 'Onyro',
+    key: ONYRO,
+    evidence: [
+      SPIRIT_BOX,
+      GHOST_ORBS,
+      FREEZING_TEMPERATURES,
+    ],
+    details: [
+      'The Onryo is often referred to as "The Wrathful Spirit".',
+      'It steals souls from dying victim\'s bodies to seek revenge.',
+      'This ghost has been known to fear any form of file, and will do anything to be far away from it.',
+    ],
+    strengths: [
+      'Extinguishing a flame can cause an Onyro to attack.',
+    ],
+    weaknesses: [
+      'When threatened, this ghost will be less likely to hunt.',
+    ],
+  },
+  {
+    name: 'The Twins',
+    key: THE_TWINS,
+    evidence: [
+      EMF_5,
+      SPIRIT_BOX,
+      FREEZING_TEMPERATURES,
+    ],
+    details: [
+      'These ghosts have been reported to mimic each other\'s actions.',
+      'They alternate their attacks to confuse their prey.',
+    ],
+    strengths: [
+      'Either Twin can be angered and initiate an attack on their prey.',
+    ],
+    weaknesses: [
+      'The Twins will often interact with the environment at the same time.',
+    ],
+  },
+  {
+    name: 'Raiju',
+    key: RAIJU,
+    evidence: [
+      EMF_5,
+      GHOST_ORBS,
+      DOTS_PROJECTOR,
+    ],
+    details: [
+      'A Raiju is a demon that thrives on electrical current.',
+      'While generally calm, they can become agitated when overwhelmed with power.',
+    ],
+    strengths: [
+      'A Raiju can siphon power from nearby electrical devices, making it move faster.',
+    ],
+    weaknesses: [
+      'Raiju are constantly disrupting electronic equipment, making it easier to track when attacking.',
+    ],
+  },
+  {
+    name: 'Obake',
+    key: OBAKE,
+    evidence: [
+      EMF_5,
+      FINGERPRINTS,
+      GHOST_ORBS,
+    ],
+    details: [
+      'Obake are terrifying shape-shifters, capable of taking of many forms.',
+      'They have been seen taking on humanoid shapes to attract their prey.',
+    ],
+    strengths: [
+      'When interacting with the environment, an Obake will rarely leave a trace.',
+    ],
+    weaknesses: [
+      'Sometimes, this ghost will shape-shift, leaving behind unique evidence.',
+    ],
   },
 ];
