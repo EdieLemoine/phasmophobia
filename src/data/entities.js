@@ -412,6 +412,9 @@ export const entities = [
       FINGERPRINTS,
       FREEZING_TEMPERATURES,
     ],
+    inconclusiveEvidence: [
+      GHOST_ORBS,
+    ],
     details: [
       'The Mimic is an elusive, mysterious, copycat ghost that mirrors traits and behaviours from others, including other ghost types.',
     ],

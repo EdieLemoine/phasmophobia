@@ -6,6 +6,7 @@
 const icons = {
   times: '✗',
   check: '✓',
+  tilde: '～',
 };
 
 export default {

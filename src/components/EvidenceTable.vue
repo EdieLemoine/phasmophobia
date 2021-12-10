@@ -3,7 +3,7 @@
     <div class="border-b" />
     <div
       v-for="evidenceItem in evidence"
-      :key="'evidence__' + evidenceItem.key"
+      :key="`evidence__${evidenceItem.key}`"
       class="border-b flex py-2 text-center">
       <span
         class="m-auto"
@@ -25,7 +25,7 @@
         mode="out-in">
         <div
           v-for="(entity, index) in possibleEntities"
-          :key="'entity--' + entity.key"
+          :key="`entity--${entity.key}`"
           tabindex="0"
           :data-index="index"
           class="duration-100 entity__details focus:outline-none focus:shadow-outline focus:z-10 group hover:bg-gray-900 relative transition-colors"
@@ -35,7 +35,7 @@
           @keyup.space.prevent="() => toggleDetails(entity)"
           @click="() => toggleDetails(entity)">
           <div
-            :key="entity.key + `__data`"
+            :key="`${entity.key}__data`"
             class="col-span-8 cursor-pointer duration-150 entity__row grid grid-cols-8 relative transition-colors">
             <div
               class="flex px-3"
@@ -52,17 +52,22 @@
             <div
               v-for="evidenceItem in evidence"
               v-show="isPossible(entity)"
-              :key="'entity--' + entity.key + '--' + evidenceItem.key"
+              :key="`entity--${entity.key}--${evidenceItem.key}`"
               class="duration-100 py-2 text-center transition-colors"
               :class="{
                 'bg-green-900 group-hover:bg-green-800 group-focus:bg-green-800': entityHasEvidence(entity, evidenceItem),
+                'bg-yellow-900 group-hover:bg-yellow-800 group-focus:bg-yellow-800': entityHasInconclusiveEvidence(entity, evidenceItem),
                 'bg-red-900 group-hover:bg-red-800 group-focus:bg-red-800': !entityHasEvidence(entity, evidenceItem),
                 'opacity-75': getLikelihood(entity) === -1,
                 'opacity-50': getLikelihood(entity) === -2,
                 'opacity-25': getLikelihood(entity) < -2,
               }">
               <Icon
-                v-if="entityHasEvidence(entity, evidenceItem)"
+                v-if="entityHasInconclusiveEvidence(entity, evidenceItem)"
+                icon="tilde"
+                class="text-yellow-300" />
+              <Icon
+                v-else-if="entityHasEvidence(entity, evidenceItem)"
                 icon="check"
                 class="text-green-300" />
               <Icon
@@ -71,7 +76,7 @@
                 class="text-red-300" />
             </div>
             <TransitionExpand
-              :key="entity.key + `__data`"
+              :key="`${entity.key}__data`"
               class="col-span-8">
               <div
                 v-show="isPossible(entity) && shownDetails === entity.key"
@@ -163,6 +168,7 @@ export default {
       handler(value) {
         this.$eventBus.save('evidence', value);
       },
+
       deep: true,
     },
   },
@@ -171,7 +177,7 @@ export default {
     this.$eventBus.$on('key:r', this.reset);
   },
 
-  beforeDestroy() {
+  beforeUnmount() {
     this.$eventBus.$off('key:r', this.reset);
   },
 
@@ -190,7 +196,7 @@ export default {
     /**
      * @param {Entity} entity
      *
-     * @returns {Number}
+     * @returns {number}
      */
     getLikelihood(entity) {
       let possibility = 0;
@@ -198,7 +204,7 @@ export default {
       Object
         .keys(this.evidenceModel)
         .forEach((setEvidence) => {
-          const hasEvidence = entity.evidence.includes(setEvidence);
+          const hasEvidence = this.entityHasEvidence(entity, { key: setEvidence });
           const current = this.evidenceModel[setEvidence];
 
           if (hasEvidence && current === 'not_likely') {
@@ -213,7 +219,7 @@ export default {
      * @param {Entity} entity
      * @param {Evidence} evidence
      *
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     entityHasEvidence(entity, evidence) {
       return entity.evidence.includes(evidence.key);
@@ -221,12 +227,24 @@ export default {
 
     /**
      * @param {Entity} entity
-     * @returns {Boolean}
+     * @param {Evidence} evidence
+     *
+     * @returns {boolean}
+     */
+    entityHasInconclusiveEvidence(entity, evidence) {
+      return Boolean(entity.inconclusiveEvidence?.includes(evidence.key));
+    },
+
+    /**
+     * @param {Entity} entity
+     * @returns {boolean}
      */
     isPossible(entity) {
       return evidence
         .every((setEvidence) => {
-          return this.entityHasEvidence(entity, setEvidence) || this.evidenceModel[setEvidence.key] !== 'confirmed';
+          return this.entityHasInconclusiveEvidence(entity, setEvidence)
+              || this.entityHasEvidence(entity, setEvidence)
+              || this.evidenceModel[setEvidence.key] !== 'confirmed';
         });
     },
 
@@ -240,7 +258,7 @@ export default {
     /**
      * @param {KeyboardEvent} event
      * @param {Entity} entity
-     * @param {Number} index
+     * @param {number} index
      */
     selectNextElement(event, entity, index) {
       const isUp = event.key === 'ArrowDown';
