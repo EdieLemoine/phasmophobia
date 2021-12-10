@@ -29,6 +29,7 @@ export const ONYRO = 'onyro';
 export const THE_TWINS = 'the_twins';
 export const RAIJU = 'raiju';
 export const OBAKE = 'obake';
+export const THE_MIMIC = 'the_mimic';
 
 /**
  * @type {Entity[]}
@@ -336,7 +337,7 @@ export const entities = [
     ],
     details: [
       'The Onryo is often referred to as "The Wrathful Spirit".',
-      'It steals souls from dying victim\'s bodies to seek revenge.',
+      'It steals souls from dying victims\'s bodies to seek revenge.',
       'This ghost has been known to fear any form of file, and will do anything to be far away from it.',
     ],
     strengths: [
@@ -401,6 +402,25 @@ export const entities = [
     ],
     weaknesses: [
       'Sometimes, this ghost will shape-shift, leaving behind unique evidence.',
+    ],
+  },
+  {
+    name: 'The Mimic',
+    key: THE_MIMIC,
+    evidence: [
+      SPIRIT_BOX,
+      FINGERPRINTS,
+      FREEZING_TEMPERATURES,
+    ],
+    details: [
+      'The Mimic is an elusive, mysterious, copycat ghost that mirrors traits and behaviours from others, including other ghost types.',
+    ],
+    strengths: [
+      'We\'re unsure what this ghost is capable of',
+      'Be careful.',
+    ],
+    weaknesses: [
+      'Several reports have noted ghost orb sightings near mimics.',
     ],
   },
 ];
