@@ -43,14 +43,14 @@ export const entities = [
       SPIRIT_BOX,
       GHOST_WRITING,
     ],
+    details: [
+      'Spirits are very common ghosts. They are very powerful, but passive, only attacking when they need to. They defend their place of death to the utmost degree, killing anyone that is caught overstaying their welcome.',
+    ],
     strengths: [
       'None.',
     ],
     weaknesses: [
-      'Smudge Sticks.',
-    ],
-    details: [
-      'The most "common" ghost, but don\'t underestimate it.',
+      'A Spirit can be temporarily stopped by burning Smudge Sticks near them.',
     ],
   },
   {
@@ -61,14 +61,14 @@ export const entities = [
       SPIRIT_BOX,
       DOTS_PROJECTOR,
     ],
+    details: [
+      'A Wraith is one of the most dangerous ghosts you will find. They are also the only known ghost that has the ability of flight and has sometimes been known to travel through walls.',
+    ],
     strengths: [
-      'Cannot be tracked with footsteps.',
+      'Wraiths almost never touch the ground, meaning they can\'t be tracked with footsteps.',
     ],
     weaknesses: [
       'The Wraith reacts badly to Salt.',
-    ],
-    details: [
-      'Can fly and go through solid walls.',
     ],
   },
   {
@@ -79,14 +79,14 @@ export const entities = [
       FINGERPRINTS,
       DOTS_PROJECTOR,
     ],
+    details: [
+      'A Phantom is a ghost that can possess the living, inducing fear in those around them. They are most commonly summoned by Ouija Boards.',
+    ],
     strengths: [
-      'Looking at it will dramatically lower your sanity.',
+      'Looking at a Phantom will drop your sanity considerably faster.',
     ],
     weaknesses: [
-      'Taking its picture will cause it to disappear.',
-    ],
-    details: [
-      'It can possess the living and is commonly summoned by an Ouija board.',
+      'Taking a photo of the Phantom will make them temporarily disappear.',
     ],
   },
   {
@@ -97,14 +97,14 @@ export const entities = [
       FINGERPRINTS,
       GHOST_WRITING,
     ],
+    details: [
+      'One of the most famous ghosts, the Poltergeist. Known to manipulate objects around them to spread fear into their victims.',
+    ],
     strengths: [
-      'Can throw many objects at once.',
+      'Poltergeists can throw multiple objects at once.',
     ],
     weaknesses: [
-      'Empty rooms.',
-    ],
-    details: [
-      'Will throw objects and really cause some chaos.',
+      'With nothing to throw, Poltergeists become powerless.',
     ],
   },
   {
@@ -115,14 +115,14 @@ export const entities = [
       GHOST_ORBS,
       DOTS_PROJECTOR,
     ],
+    details: [
+      'The singing siren, known for attracting their victims through song. They have been known to single out their prey before making a killing blow.',
+    ],
     strengths: [
-      'Targets one player at a time.',
+      'Banshees will weaken their target before striking.',
     ],
     weaknesses: [
-      'Can be warded off with a Crucifix.',
-    ],
-    details: [
-      'Will individually stalk players and pounce.',
+      'Banshees can sometimes be heard screaming with a parabolic microphone.',
     ],
   },
   {
@@ -133,15 +133,14 @@ export const entities = [
       FINGERPRINTS,
       FREEZING_TEMPERATURES,
     ],
+    details: [
+      'A Jinn is a territorial ghost that will attack when threatened. They have also been known to be able to travel at significant speed.',
+    ],
     strengths: [
-      'When a player is farther away, the Jinn is faster.',
+      'A Jinn will travel at a faster speed if their victim is far away.',
     ],
     weaknesses: [
-      'Turning off a location’s power source will stop the Jinn from using its ability.',
-    ],
-    details: [
-      'Fast-paced.',
-      'Territorial.',
+      'Turning off the location\'s power source will prevent the Jinn from using their ability.',
     ],
   },
   {
@@ -152,15 +151,14 @@ export const entities = [
       GHOST_ORBS,
       GHOST_WRITING,
     ],
+    details: [
+      'A Mare is the source of all nightmares, making them most powerful in the dark.',
+    ],
     strengths: [
-      'The dark will increase its odds of attacking.',
+      'A Mare will have an increased chance to attack in the dark.',
     ],
     weaknesses: [
-      'Any kind of light.',
-    ],
-    details: [
-      'Stronger in the dark.',
-      'Hates light.',
+      'Turning the lights on around the Mare will lower their chance to attack.',
     ],
   },
   {
@@ -171,14 +169,14 @@ export const entities = [
       GHOST_WRITING,
       FREEZING_TEMPERATURES,
     ],
+    details: [
+      'A Revenant is a violent ghost that will attack indiscriminately. Their speed can be deceiving, as they are slow while dormant; however, as soon as they hunt they can move incredibly fast.',
+    ],
     strengths: [
-      'Faster when hunting a victim.',
+      'A Revenant will travel at a significantly faster speed when hunting their prey.',
     ],
     weaknesses: [
-      'If you hide, it will move much slower.',
-    ],
-    details: [
-      'Slow at first, but gets faster the longer it hunts you.',
+      'Hiding from the Revenant will cause it to move very slowly.',
     ],
   },
   {
@@ -189,14 +187,14 @@ export const entities = [
       GHOST_WRITING,
       FREEZING_TEMPERATURES,
     ],
+    details: [
+      'A Shade is known to be very shy. There is evidence to suggest that a Shade will stop all paranormal activity if there are multiple people nearby.',
+    ],
     strengths: [
-      'It is shy, which makes it hard to find.',
+      'Shades are much harder to find.',
     ],
     weaknesses: [
-      'With the presence of several players, a Shade won’t enter Hunting mode.',
-    ],
-    details: [
-      'Shy and prefers to go after players who are alone.',
+      'A Shade will not enter a hunt if there are multiple people nearby.',
     ],
   },
   {
@@ -207,16 +205,14 @@ export const entities = [
       GHOST_WRITING,
       FREEZING_TEMPERATURES,
     ],
+    details: [
+      'Demons are the most aggressive ghosts we\'ve ever encountered. Known to attack without reason, they seem to enjoy the thrill of the hunt.',
+    ],
     strengths: [
-      'Demons attack more than any other ghost type.',
+      'Demons will initiate hunts more often than other ghosts.',
     ],
     weaknesses: [
-      'Asking it a successful question on an Ouija board won\'t lower your sanity.',
-    ],
-    details: [
-      'By far the most aggressive ghost that will attack you.',
-      'Will attack you a lot more than any other type.',
-      'Outsmart it via the Ouija board.',
+      'Demons fear the Crucifix and will be less aggressive near one.',
     ],
   },
   {
@@ -227,15 +223,14 @@ export const entities = [
       FREEZING_TEMPERATURES,
       DOTS_PROJECTOR,
     ],
+    details: [
+      'A Yurei is a ghost that has returned to the physical world, usually for the purpose of revenge or hatred.',
+    ],
     strengths: [
-      'Strong effect on your sanity.',
+      'Yureis have been known to have a stronger effect on people\'s sanity.',
     ],
     weaknesses: [
-      'Smudging a room a Yurei is in will stop it from roaming for a long time.',
-    ],
-    details: [
-      'Has a big impact on your sanity.',
-      'Can be trapped by smudges.',
+      'Smudging the Yurei\'s place of death will trap it temporarily, reducing how much it wanders.',
     ],
   },
   {
@@ -246,33 +241,14 @@ export const entities = [
       FREEZING_TEMPERATURES,
       DOTS_PROJECTOR,
     ],
-    strengths: [
-      'Active when players are nearby and can move objects very quickly.',
-    ],
-    weaknesses: [
-      'If more people are present, it will be easier to find this entity.',
-    ],
     details: [
-      'This is a pretty strong entity that will become even more active and aggressive when a player is near it.',
-    ],
-  },
-  {
-    name: 'Hantu',
-    key: HANTU,
-    evidence: [
-      FINGERPRINTS,
-      GHOST_ORBS,
-      FREEZING_TEMPERATURES,
+      'Onis love to scare their victims as much as possible before attacking. They are often seen in their physical form, guarding their place of death.',
     ],
     strengths: [
-      'Lower temperatures can cause the Hantu to move at faster speeds.',
+      'Onis are more active when people are nearby, and have been seen moving objects at great speed.',
     ],
     weaknesses: [
-      'A Hantu will move slower in warmer areas.',
-    ],
-    details: [
-      'A Hantu is a rare ghost that can be found in hot climates.',
-      'They are known to attack often during cold weather.',
+      'Onis are very active, making them easier to find.',
     ],
   },
   {
@@ -283,15 +259,32 @@ export const entities = [
       GHOST_ORBS,
       DOTS_PROJECTOR,
     ],
+    details: [
+      'Yokai are common ghosts that are attracted to human voices. They can usually be found haunting family homes.',
+    ],
     strengths: [
-      'Talking near a Yokai will anger it and increase its chance of attacking.',
+      'Talking near a Yokai will anger them, increasing the chance of an attack.',
     ],
     weaknesses: [
-      'When hunting, a Yokai can only hear voices close to it.',
+      'When hunting, a Yokai can only hear voices close to them.',
+    ],
+  },
+  {
+    name: 'Hantu',
+    key: HANTU,
+    evidence: [
+      FINGERPRINTS,
+      GHOST_ORBS,
+      FREEZING_TEMPERATURES,
     ],
     details: [
-      'A Yokai is a common type of ghost that is attracted to human voices.',
-      'They can usually be found haunting family homes.',
+      'A Hantu is a rare ghost that thrives in the coldest climates. The cold seems to make them more aggressive and empowered.',
+    ],
+    strengths: [
+      'Lower temperatures allow the Hantu to move at faster speeds.',
+    ],
+    weaknesses: [
+      'Hantus move move slower in warmer areas.',
     ],
   },
   {
@@ -299,13 +292,13 @@ export const entities = [
     key: GORYO,
     evidence: [EMF_5, FINGERPRINTS, DOTS_PROJECTOR],
     strengths: [
-      'A Goryo will usually only show itself on camera if there are no people nearby.',
+      'A Goryo will usually only show themselves on camera if there are no people nearby.',
     ],
     weaknesses: [
       'They are rarely seen far from their place of death.',
     ],
     details: [
-      'Using a video camera is the only way to view a Goryo, when it passes through a D.O.T.S. Projector',
+      'When a Goryo passes through a D.O.T.S. projector, using a video camera is the only way to them.',
     ],
   },
   {
@@ -323,8 +316,7 @@ export const entities = [
       'Mylings more frequently make paranormal sounds.',
     ],
     details: [
-      'A Myling is a very vocal and active ghost.',
-      'They are rumoured to be quiet when hunting their prey.',
+      'A Myling is a very vocal and active ghost. They are rumoured to be quiet when hunting their prey.',
     ],
   },
   {
@@ -336,9 +328,7 @@ export const entities = [
       FREEZING_TEMPERATURES,
     ],
     details: [
-      'The Onryo is often referred to as "The Wrathful Spirit".',
-      'It steals souls from dying victims\'s bodies to seek revenge.',
-      'This ghost has been known to fear any form of file, and will do anything to be far away from it.',
+      'The Onyro is often referred to as "The Wrathful Spirit". It steals souls from dying victims\' bodies to seek revenge. This ghost has been known to fear any form of fire, and will do anything to be far from it.',
     ],
     strengths: [
       'Extinguishing a flame can cause an Onyro to attack.',
@@ -356,8 +346,7 @@ export const entities = [
       FREEZING_TEMPERATURES,
     ],
     details: [
-      'These ghosts have been reported to mimic each other\'s actions.',
-      'They alternate their attacks to confuse their prey.',
+      'These ghosts have been reported to mimic each other\'s actions. They alternate their attacks to confuse their prey.',
     ],
     strengths: [
       'Either Twin can be angered and initiate an attack on their prey.',
@@ -375,14 +364,13 @@ export const entities = [
       DOTS_PROJECTOR,
     ],
     details: [
-      'A Raiju is a demon that thrives on electrical current.',
-      'While generally calm, they can become agitated when overwhelmed with power.',
+      'A Raiju is a demon that thrives on electrical current. While generally calm, they can become agitated when overwhelmed with power.',
     ],
     strengths: [
       'A Raiju can siphon power from nearby electrical devices, making it move faster.',
     ],
     weaknesses: [
-      'Raiju are constantly disrupting electronic equipment, making it easier to track when attacking.',
+      'Raiju are constantly disrupting electronic equipment when attacking, making it easier to track.',
     ],
   },
   {
@@ -394,8 +382,7 @@ export const entities = [
       GHOST_ORBS,
     ],
     details: [
-      'Obake are terrifying shape-shifters, capable of taking of many forms.',
-      'They have been seen taking on humanoid shapes to attract their prey.',
+      'Obake are terrifying shape-shifters, capable of taking of many forms. They have been seen taking on humanoid shapes to attract their prey.',
     ],
     strengths: [
       'When interacting with the environment, an Obake will rarely leave a trace.',
@@ -419,8 +406,7 @@ export const entities = [
       'The Mimic is an elusive, mysterious, copycat ghost that mirrors traits and behaviours from others, including other ghost types.',
     ],
     strengths: [
-      'We\'re unsure what this ghost is capable of',
-      'Be careful.',
+      'We\'re unsure what this ghost is capable of. Be careful.',
     ],
     weaknesses: [
       'Several reports have noted ghost orb sightings near mimics.',
