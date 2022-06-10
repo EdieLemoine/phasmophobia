@@ -412,4 +412,48 @@ export const entities = [
       'Several reports have noted ghost orb sightings near mimics.',
     ],
   },
+  {
+    name: 'Moroi',
+    details: [
+      'Moroi have risen from the grave to drain energy from the living. They have been known to place curses on their victims, curable only by antidotes or moving very far away.',
+    ],
+    evidence: [
+      SPIRIT_BOX,
+      GHOST_WRITING,
+      FREEZING_TEMPERATURES,
+    ],
+    strengths: [
+      'The weaker their victims, the stronger the Morai becomes.',
+    ],
+    weaknesses: [
+      'Moroi suffer from hyperosmia (overwhelming sensitivity to smells), weakening them for longer periods.',
+    ],
+  },
+  {
+    name: 'Deogen',
+    details: [
+      'Sometimes surrounded by an endless fog. Deogen have been eluding ghost hunters for years.',
+      'These ghosts have been reported to find even the most hidden prey, before stalking them into exhaustion.',
+    ],
+    strengths: [
+      'Deogen constantly sense the living. You can run but you can\'t hide.',
+    ],
+    weaknesses: ['Deogen require a lot of energy to form and will move very slowly.'],
+    evidence: [
+      SPIRIT_BOX,
+      GHOST_WRITING,
+      DOTS_PROJECTOR,
+    ],
+  },
+  {
+    name: 'Thaye',
+    details: ['Thaye have been known to rapidly age over time, even in the afterlife. From what we\'ve learned, they seem to deteriorate faster while within the presence of the living.'],
+    strengths: ['Upon entering the location, Thaye will become active, defensive and agile.'],
+    weaknesses: ['Thaye will eaken over time, making them weaker, slower and less aggressive.'],
+    evidence: [
+      GHOST_ORBS,
+      GHOST_WRITING,
+      DOTS_PROJECTOR,
+    ],
+  },
 ];
