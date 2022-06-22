@@ -30,6 +30,9 @@ export const THE_TWINS = 'the_twins';
 export const RAIJU = 'raiju';
 export const OBAKE = 'obake';
 export const THE_MIMIC = 'the_mimic';
+export const MOROI = 'moroi';
+export const DEOGEN = 'deogen';
+export const THAYE = 'thaye';
 
 /**
  * @type {Entity[]}
@@ -414,6 +417,7 @@ export const entities = [
   },
   {
     name: 'Moroi',
+    key: MOROI,
     details: [
       'Moroi have risen from the grave to drain energy from the living. They have been known to place curses on their victims, curable only by antidotes or moving very far away.',
     ],
@@ -431,6 +435,7 @@ export const entities = [
   },
   {
     name: 'Deogen',
+    key: DEOGEN,
     details: [
       'Sometimes surrounded by an endless fog. Deogen have been eluding ghost hunters for years.',
       'These ghosts have been reported to find even the most hidden prey, before stalking them into exhaustion.',
@@ -447,6 +452,7 @@ export const entities = [
   },
   {
     name: 'Thaye',
+    key: THAYE,
     details: ['Thaye have been known to rapidly age over time, even in the afterlife. From what we\'ve learned, they seem to deteriorate faster while within the presence of the living.'],
     strengths: ['Upon entering the location, Thaye will become active, defensive and agile.'],
     weaknesses: ['Thaye will eaken over time, making them weaker, slower and less aggressive.'],
