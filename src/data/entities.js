@@ -25,7 +25,7 @@ export const HANTU = 'hantu';
 export const YOKAI = 'yokai';
 export const GORYO = 'goryo';
 export const MYLING = 'myling';
-export const ONYRO = 'onyro';
+export const ONRYO = 'onryo';
 export const THE_TWINS = 'the_twins';
 export const RAIJU = 'raiju';
 export const OBAKE = 'obake';
@@ -219,7 +219,7 @@ export const entities = [
     ],
   },
   {
-    name: 'Yurei',
+    name: 'Yūrei',
     key: YUREI,
     evidence: [
       GHOST_ORBS,
@@ -227,13 +227,13 @@ export const entities = [
       DOTS_PROJECTOR,
     ],
     details: [
-      'A Yurei is a ghost that has returned to the physical world, usually for the purpose of revenge or hatred.',
+      'A Yūrei is a ghost that has returned to the physical world, usually for the purpose of revenge or hatred.',
     ],
     strengths: [
-      'Yureis have been known to have a stronger effect on people\'s sanity.',
+      'Yūreis have been known to have a stronger effect on people\'s sanity.',
     ],
     weaknesses: [
-      'Smudging the Yurei\'s place of death will trap it temporarily, reducing how much it wanders.',
+      'Smudging the Yūrei\'s place of death will trap it temporarily, reducing how much it wanders.',
     ],
   },
   {
@@ -255,7 +255,7 @@ export const entities = [
     ],
   },
   {
-    name: 'Yokai',
+    name: 'Yōkai',
     key: YOKAI,
     evidence: [
       SPIRIT_BOX,
@@ -263,13 +263,13 @@ export const entities = [
       DOTS_PROJECTOR,
     ],
     details: [
-      'Yokai are common ghosts that are attracted to human voices. They can usually be found haunting family homes.',
+      'Yōkai are common ghosts that are attracted to human voices. They can usually be found haunting family homes.',
     ],
     strengths: [
-      'Talking near a Yokai will anger them, increasing the chance of an attack.',
+      'Talking near a Yōkai will anger them, increasing the chance of an attack.',
     ],
     weaknesses: [
-      'When hunting, a Yokai can only hear voices close to them.',
+      'When hunting, a Yōkai can only hear voices close to them.',
     ],
   },
   {
@@ -291,17 +291,17 @@ export const entities = [
     ],
   },
   {
-    name: 'Goryo',
+    name: 'Goryō',
     key: GORYO,
     evidence: [EMF_5, FINGERPRINTS, DOTS_PROJECTOR],
+    details: [
+      'When a Goryō ([ɡoɾʲoː]) passes through a D.O.T.S. projector, using a video camera is the only way to them.',
+    ],
     strengths: [
-      'A Goryo will usually only show themselves on camera if there are no people nearby.',
+      'A Goryō will usually only show themselves on camera if there are no people nearby.',
     ],
     weaknesses: [
       'They are rarely seen far from their place of death.',
-    ],
-    details: [
-      'When a Goryo passes through a D.O.T.S. projector, using a video camera is the only way to them.',
     ],
   },
   {
@@ -319,22 +319,22 @@ export const entities = [
       'Mylings more frequently make paranormal sounds.',
     ],
     details: [
-      'A Myling is a very vocal and active ghost. They are rumoured to be quiet when hunting their prey.',
+      'A Myling ("mew-leeng") is a very vocal and active ghost. They are rumoured to be quiet when hunting their prey.',
     ],
   },
   {
-    name: 'Onyro',
-    key: ONYRO,
+    name: 'Onryō',
+    key: ONRYO,
     evidence: [
       SPIRIT_BOX,
       GHOST_ORBS,
       FREEZING_TEMPERATURES,
     ],
     details: [
-      'The Onyro is often referred to as "The Wrathful Spirit". It steals souls from dying victims\' bodies to seek revenge. This ghost has been known to fear any form of fire, and will do anything to be far from it.',
+      'The Onryō is often referred to as "The Wrathful Spirit". It steals souls from dying victims\' bodies to seek revenge. This ghost has been known to fear any form of fire, and will do anything to be far from it.',
     ],
     strengths: [
-      'Extinguishing a flame can cause an Onyro to attack.',
+      'Extinguishing a flame can cause an Onryō to attack.',
     ],
     weaknesses: [
       'When threatened, this ghost will be less likely to hunt.',
@@ -359,7 +359,7 @@ export const entities = [
     ],
   },
   {
-    name: 'Raiju',
+    name: 'Raijū',
     key: RAIJU,
     evidence: [
       EMF_5,
@@ -367,13 +367,13 @@ export const entities = [
       DOTS_PROJECTOR,
     ],
     details: [
-      'A Raiju is a demon that thrives on electrical current. While generally calm, they can become agitated when overwhelmed with power.',
+      'A Raijū is a demon that thrives on electrical current. While generally calm, they can become agitated when overwhelmed with power.',
     ],
     strengths: [
-      'A Raiju can siphon power from nearby electrical devices, making it move faster.',
+      'A Raijū can siphon power from nearby electrical devices, making it move faster.',
     ],
     weaknesses: [
-      'Raiju are constantly disrupting electronic equipment when attacking, making it easier to track.',
+      'Raijū are constantly disrupting electronic equipment when attacking, making it easier to track.',
     ],
   },
   {
@@ -427,7 +427,7 @@ export const entities = [
       FREEZING_TEMPERATURES,
     ],
     strengths: [
-      'The weaker their victims, the stronger the Morai becomes.',
+      'The weaker their victims, the stronger the Moroi becomes.',
     ],
     weaknesses: [
       'Moroi suffer from hyperosmia (overwhelming sensitivity to smells), weakening them for longer periods.',
@@ -437,7 +437,7 @@ export const entities = [
     name: 'Deogen',
     key: DEOGEN,
     details: [
-      'Sometimes surrounded by an endless fog. Deogen have been eluding ghost hunters for years.',
+      'Sometimes surrounded by an endless fog. Deogen (De Ogen) have been eluding ghost hunters for years.',
       'These ghosts have been reported to find even the most hidden prey, before stalking them into exhaustion.',
     ],
     strengths: [
@@ -451,11 +451,11 @@ export const entities = [
     ],
   },
   {
-    name: 'Thaye',
+    name: 'Thayé',
     key: THAYE,
-    details: ['Thaye have been known to rapidly age over time, even in the afterlife. From what we\'ve learned, they seem to deteriorate faster while within the presence of the living.'],
-    strengths: ['Upon entering the location, Thaye will become active, defensive and agile.'],
-    weaknesses: ['Thaye will eaken over time, making them weaker, slower and less aggressive.'],
+    details: ['Thayé have been known to rapidly age over time, even in the afterlife. From what we\'ve learned, they seem to deteriorate faster while within the presence of the living.'],
+    strengths: ['Upon entering the location, Thayé will become active, defensive and agile.'],
+    weaknesses: ['Thayé will weaken over time, making them weaker, slower and less aggressive.'],
     evidence: [
       GHOST_ORBS,
       GHOST_WRITING,
