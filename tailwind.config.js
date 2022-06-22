@@ -44,7 +44,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        'Share Tech',
+        'Rajdhani',
         'sans-serif',
       ],
     },
