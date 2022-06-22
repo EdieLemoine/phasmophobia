@@ -3,18 +3,24 @@
     <div class="border-b" />
     <div
       v-for="evidenceItem in evidence"
-      :key="`evidence__${evidenceItem.key}`"
+      :key="`evidence--${evidenceItem.key}__title`"
       class="border-b flex py-2 text-center">
       <span
         class="m-auto"
+        :class="{
+          'opacity-50': !possibleEvidence.includes(evidenceItem.key),
+        }"
         v-text="evidenceItem.name" />
     </div>
     <div />
     <EvidenceSelect
       v-for="evidenceItem in evidence"
-      :key="evidenceItem.key"
+      :key="`evidence--${evidenceItem.key}__select`"
       v-model="evidenceModel[evidenceItem.key]"
-      select-class="focus:z-10"
+      :class="{
+        'opacity-50': !possibleEvidence.includes(evidenceItem.key),
+      }"
+      :disabled="possibleEvidence.includes(evidenceItem.key) ? null : 'disabled'"
       class="w-full" />
 
     <div class="col-span-8 entity__row">
@@ -33,7 +39,7 @@
           @keyup.down.prevent="(event) => selectNextElement(event, entity, index)"
           @keyup.enter.prevent="() => toggleDetails(entity)"
           @keyup.space.prevent="() => toggleDetails(entity)"
-          @click="() => toggleDetails(entity)">
+          @click="() => possibleEntities.length > 1 ? toggleDetails(entity) : null">
           <div
             :key="`${entity.key}__data`"
             class="col-span-8 cursor-pointer duration-150 entity__row grid grid-cols-8 relative transition-colors">
@@ -41,9 +47,9 @@
               class="flex px-3"
               :class="{
                 'bg-gray-900': shownDetails === entity.key,
-                'opacity-75': getLikelihood(entity) === -1,
-                'opacity-50': getLikelihood(entity) === -2,
-                'opacity-25': getLikelihood(entity) < -2,
+                'opacity-75': getEntityLikelihood(entity) === -1,
+                'opacity-50': getEntityLikelihood(entity) === -2,
+                'opacity-25': getEntityLikelihood(entity) < -2,
               }">
               <h4
                 class="ml-auto my-auto"
@@ -51,17 +57,10 @@
             </div>
             <div
               v-for="evidenceItem in evidence"
-              v-show="isPossible(entity)"
+              v-show="entityIsPossible(entity)"
               :key="`entity--${entity.key}--${evidenceItem.key}`"
               class="duration-100 py-2 text-center transition-colors"
-              :class="{
-                'bg-green-900 group-hover:bg-green-800 group-focus:bg-green-800': entityHasEvidence(entity, evidenceItem),
-                'bg-yellow-900 group-hover:bg-yellow-800 group-focus:bg-yellow-800': entityHasInconclusiveEvidence(entity, evidenceItem),
-                'bg-red-900 group-hover:bg-red-800 group-focus:bg-red-800': !entityHasEvidence(entity, evidenceItem),
-                'opacity-75': getLikelihood(entity) === -1,
-                'opacity-50': getLikelihood(entity) === -2,
-                'opacity-25': getLikelihood(entity) < -2,
-              }">
+              :class="calculateEvidenceClasses(evidenceItem, entity)">
               <Icon
                 v-if="entityHasInconclusiveEvidence(entity, evidenceItem)"
                 icon="tilde"
@@ -75,11 +74,12 @@
                 icon="times"
                 class="text-red-300" />
             </div>
+
             <TransitionExpand
               :key="`${entity.key}__data`"
               class="col-span-8">
               <div
-                v-show="isPossible(entity) && shownDetails === entity.key"
+                v-show="entityIsPossible(entity) && shownDetails === entity.key"
                 class="bg-gray-900">
                 <div
                   v-for="type in details"
@@ -142,11 +142,19 @@ export default {
   },
 
   computed: {
+    possibleEvidence() {
+      return evidence
+        .map((evidenceItem) => evidenceItem.key)
+        .filter((evidenceKey) => this.possibleEntities.some((entity) => {
+          return entity.evidence.includes(evidenceKey);
+        }));
+    },
+
     possibleEntities() {
       return this.entities
-        .filter(this.isPossible)
+        .filter(this.entityIsPossible)
         .sort((entityA, entityB) => {
-          return this.getLikelihood(entityB) - this.getLikelihood(entityA);
+          return this.getEntityLikelihood(entityB) - this.getEntityLikelihood(entityA);
         });
     },
   },
@@ -194,11 +202,35 @@ export default {
 
   methods: {
     /**
+     * @param {Evidence} evidence
+     * @param {Entity} entity
+     *
+     * @returns {string[]}
+     */
+    // eslint-disable-next-line complexity
+    calculateEvidenceClasses(evidence, entity) {
+      const hasEvidence = this.entityHasEvidence(entity, evidence);
+      const hasInconclusive = this.entityHasInconclusiveEvidence(entity, evidence);
+      const isPossible = this.possibleEvidence.includes(evidence.key);
+      const likelihood = this.getEntityLikelihood(entity);
+
+      return [
+        hasEvidence && 'bg-green-900 group-hover:bg-green-800 group-focus:bg-green-800',
+        hasInconclusive && 'bg-yellow-900 group-hover:bg-yellow-800 group-focus:bg-yellow-800',
+        !hasEvidence && 'bg-red-900 group-hover:bg-red-800 group-focus:bg-red-800',
+        isPossible && likelihood === -1 && 'opacity-75',
+        isPossible && likelihood === -2 && 'opacity-50',
+        isPossible && likelihood < -2 && 'opacity-25',
+        !isPossible && 'opacity-20',
+      ].filter(Boolean).join(' ');
+    },
+
+    /**
      * @param {Entity} entity
      *
      * @returns {number}
      */
-    getLikelihood(entity) {
+    getEntityLikelihood(entity) {
       let possibility = 0;
 
       Object
@@ -239,7 +271,7 @@ export default {
      * @param {Entity} entity
      * @returns {boolean}
      */
-    isPossible(entity) {
+    entityIsPossible(entity) {
       return evidence
         .every((setEvidence) => {
           return this.entityHasInconclusiveEvidence(entity, setEvidence)
